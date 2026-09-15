@@ -7,12 +7,22 @@ console.log("Hello, world!");
 // Store text values in variables
 
 const userName = "Jon";
+let age = 38;
 const favoriteAnimal = "Cat";
 
 
 // Print the variables to the console
 console.log("my name is " + userName);
+console.log(age);
 console.log("My favorite animal is " + favoriteAnimal);
+
+console.log(
+"Hello! My name is " +
+userName +
+" and my favourite animal is " +
+favoriteAnimal +
+"."
+);
 // STEP 3: User interaction
 // Display a pop-up message
 alert("Tervetuloo mun hienoille nettisivuille!")
@@ -23,6 +33,14 @@ const visitorName = prompt("Mikä on sun Nimi?")
 
 // Print the user's answer
 console.log("Terve " + visitorName +  "! Tervetuloa javasricptin pariin!");
+
+let visitorAge = prompt("Kuinka vanha olet?");
+
+if (visitorAge >= 18) {
+ console.log("Olet aikuinen");
+} else {
+    console.log("Olet alle 18 vuotta.");
+}
 
 
 const visitorFavoriteAnimal = prompt("Mikä on sun lempieläin?");
@@ -36,3 +54,12 @@ console.log("Hello, " + visitorName + "! Your favorite animal is " + visitorFavo
 
 // const visitorFavoriteAnimal = prompt("What is your favorite animal?");
 
+function greetUser(name) {
+console.log("Hello " + name + "!");
+}
+greetUser("Jon");
+greetUser("Emma");
+
+function showMessage() {
+alert("JavaScript works!");
+}
