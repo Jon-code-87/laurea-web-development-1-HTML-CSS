@@ -39,11 +39,11 @@ if (visitorAge >= 18) {
 // Functions
 
 function greetUser(name) {
-    console.log("Hello " + name + "! Welcome to JavaScript.");
-}
+    console.log("Hello " + name + "!");}
 
 greetUser("Jon");
 greetUser("Pekka");
+greetUser("Olli");
 
 // Button
 
