@@ -1,33 +1,31 @@
 // STEP 1: Print text to the browser console is string ""
 
-console.log("Hello, World!");
+console.log("Hello, world!");
 
 // STEP 2: Variables
 
 // Store text values in variables
 
-const userName = "Juho";
-const favoriteAnimal = "Blue Elephant";
+const userName = "Jon";
+const favoriteAnimal = "Cat";
 
 
 // Print the variables to the console
-console.log("My name is " + userName);
+console.log("my name is " + userName);
 console.log("My favorite animal is " + favoriteAnimal);
 // STEP 3: User interaction
 // Display a pop-up message
-alert("tervertetuloa hieoulle nettisivylleni!");
+alert("Tervetuloo mun hienoille nettisivuille!")
 
 // Ask the user for their name
 
-const visitorName = prompt("Mikä on nimesi?");
+const visitorName = prompt("Mikä on sun Nimi?")
 
 // Print the user's answer
-console.log(visitorName);
+console.log("Terve " + visitorName +  "! Tervetuloa javasricptin pariin!");
 
-console.log("Terve " + visitorName + "! Tervetuloa javasciptimn psariin!");
-// Ask the user for their favorite animal
 
-const visitorFavoriteAnimal = prompt("Mikä on lempieläimesi?");
+const visitorFavoriteAnimal = prompt("Mikä on sun lempieläin?");
 
 // Create a sentence using both answers
 
