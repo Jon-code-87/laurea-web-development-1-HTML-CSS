@@ -48,3 +48,27 @@ harjoitus1.addEventListener("click", function() {
     harjoitus1.style.color = "red";
     harjoitus1.innerHTML = "Bye bye mouse!";
 });
+
+// Harjoitus 3
+
+const feedback = document.querySelector("#feedback");
+const status = document.querySelector("#status");
+const charcount = document.querySelector("#charcount");
+const preview = document.querySelector("#preview");
+
+feedback.addEventListener("focus", function() {
+    status.innerHTML = "Kirjoita palautteesi tähän!";
+    feedback.style.backgroundColor = "#ffffcc";
+});
+
+feedback.addEventListener("blur", function() {
+    status.innerHTML = "";
+    feedback.style.backgroundColor = "";
+});
+
+feedback.addEventListener("input", function() {
+    const text = feedback.value;
+
+    charcount.innerHTML = text.length + "/200";
+    preview.innerHTML = text;
+});
