@@ -10,8 +10,7 @@
 <body class="ws3">
     <h1>Työpaja 3: JavaScript-tapahtumat</h1>
     <hr>
-    
-
+    <script src="js/script.js"></script>
     <p>
         Tässä työpajassa harjoitellaan JavaScript-tapahtumia.
         Käytä materiaalia apuna ja tallenna koodi, jotta voit käyttää sitä myöhemmin.
@@ -24,9 +23,8 @@
     <p>Harjoituksessa 2 opit <code>addEventListener()</code>:n. Se on parempi tapa kuin kirjoittaminen suoraan HTML:ään.</p>
 
     <p>
-        <p><button id="animalButton">Show animal message</button></p>
-        <button>Paina minua</button>
-        <button id="tableButton">Näytä eläintaulukko</button>
+        <button onclick="showMessage()">Paina minua</button>
+        <button onclick="showTable()">Näytä eläintaulukko</button>
     </p>
 
     <div id="tableContainer"></div>
@@ -39,7 +37,7 @@
         <li>Kun taulukko toimii, etsi paikka sivulta <code>document.querySelector()</code>:lla ja lisää taulukko elementtiin, jonka id on <code>tableContainer</code>.</li>
     </ol>
 
-    <table id="eläinTaulukko" class="display">
+    <table id="example" class="display">
         <thead>
             <tr>
                 <th>Eläin</th>
