@@ -73,7 +73,7 @@ feedback.addEventListener("input", function() {
     preview.innerHTML = text;
 });
 
-// Harjoitus 4
+
 
 const feedbackForm = document.querySelector("#feedbackForm");
 
@@ -91,4 +91,17 @@ feedbackForm.addEventListener("submit", function(event) {
     status.innerHTML = "Thank you for your feedback!";
     charcount.innerHTML = "0/200";
     preview.innerHTML = "(Esikatselu tulee tähän)";
+});
+
+
+const keybox = document.querySelector("#keybox");
+const keyinfo = document.querySelector("#keyinfo");
+
+document.addEventListener("keydown", function(event) {
+    console.log(event);
+
+    keyinfo.innerHTML = `Näppäin: ${event.key}<br>Koodi: ${event.code}`;
+
+    keybox.innerHTML = event.key;
+    keybox.style.fontSize = "3em";
 });
