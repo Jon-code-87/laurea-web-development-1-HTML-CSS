@@ -49,7 +49,7 @@ harjoitus1.addEventListener("click", function() {
     harjoitus1.innerHTML = "Bye bye mouse!";
 });
 
-// Harjoitus 3
+
 
 const feedback = document.querySelector("#feedback");
 const status = document.querySelector("#status");
