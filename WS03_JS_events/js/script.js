@@ -72,3 +72,23 @@ feedback.addEventListener("input", function() {
     charcount.innerHTML = text.length + "/200";
     preview.innerHTML = text;
 });
+
+// Harjoitus 4
+
+const feedbackForm = document.querySelector("#feedbackForm");
+
+feedbackForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const text = feedback.value.trim();
+
+    if (text.length < 10 || text.length > 200) {
+        status.innerHTML = "Palaute pitää olla 10–200 merkkiä pitkä.";
+        return;
+    }
+
+    feedback.value = "";
+    status.innerHTML = "Thank you for your feedback!";
+    charcount.innerHTML = "0/200";
+    preview.innerHTML = "(Esikatselu tulee tähän)";
+});
