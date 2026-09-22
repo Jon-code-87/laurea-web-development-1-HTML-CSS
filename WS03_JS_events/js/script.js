@@ -37,3 +37,14 @@ function showTable() {
 }
 
 
+const harjoitus1 = document.querySelector("#harjoitus1");
+const harjoitus2 = document.querySelector("#harjoitus2");
+
+harjoitus2.addEventListener("mouseover", function() {
+    console.log("Stepped over me with a mouse!");
+});
+
+harjoitus1.addEventListener("click", function() {
+    harjoitus1.style.color = "red";
+    harjoitus1.innerHTML = "Bye bye mouse!";
+});
