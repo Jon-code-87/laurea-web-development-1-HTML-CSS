@@ -74,9 +74,6 @@ animalButton.addEventListener("click", function () {
 });
  
 
-
-
-
 const animalSelect = document.querySelector("#animalSelect");
 const animalName = document.querySelector("#animalName");
 const animalImage = document.querySelector("#animalImage");
@@ -103,7 +100,7 @@ animalImage.alt = "Elefantti";
 animalDescription.textContent =
 "Elefantit ovat maailman suurimpia maaeläimiä.";
 }
- 
+
 if (selectedAnimal === "penguin") {
 animalName.textContent = "Pingviini";
 animalImage.src = "images/penguin.png";
@@ -111,7 +108,7 @@ animalImage.alt = "Pingviini";
 animalDescription.textContent =
 "Pingviinit ovat lentokyvyttömiä lintuja.";
 }
- 
+
 if (selectedAnimal === "panda") {
 animalName.textContent = "Panda";
 animalImage.src = "images/panda.png";
@@ -120,10 +117,7 @@ animalDescription.textContent =
 "Pandat syövät pääasiassa bambua.";
 }
 
-
-
 });
-
 
 animalImage.addEventListener("mouseenter", function () {
 animalImage.classList.add("image-highlight");
@@ -131,4 +125,55 @@ animalImage.classList.add("image-highlight");
 
 animalImage.addEventListener("mouseleave", function () {
 animalImage.classList.remove("image-highlight");
+});
+
+
+
+
+
+// Tehtävä 4
+
+const animalForm = document.querySelector("#animalForm");
+const observationTableBody = document.querySelector("#observationTableBody");
+
+animalForm.addEventListener("submit", function (event) {
+event.preventDefault();
+
+const animal =
+document.querySelector("#observationAnimal").value;
+
+const location =
+document.querySelector("#observationLocation").value;
+
+const dateValue =
+document.querySelector("#observationDate").value;
+
+const dateObject = new Date(dateValue);
+
+const date =
+dateObject.getDate() + "." +
+(dateObject.getMonth() + 1) + "." +
+dateObject.getFullYear();
+
+if (!animal || !location || !dateValue) {
+return;
+}
+
+const row = document.createElement("tr");
+const animalCell = document.createElement("td");
+animalCell.textContent = animal;
+const locationCell = document.createElement("td");
+locationCell.textContent = location;
+const dateCell = document.createElement("td");
+
+dateCell.textContent = date;
+row.append(
+animalCell,
+locationCell,
+dateCell
+);
+
+observationTableBody.append(row);
+animalForm.reset();
+
 });
