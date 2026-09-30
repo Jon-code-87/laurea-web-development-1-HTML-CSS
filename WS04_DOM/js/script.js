@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 // Tehtävä 1
 
+=======
+>>>>>>> 932250ed1312559452b35fea8763e6bb0f6af65d
 const changeHeadingButton = document.querySelector("#changeHeadingButton");
 const taskOneHeading = document.querySelector("#taskOneHeading");
 
 changeHeadingButton.addEventListener("click", function () {
     taskOneHeading.textContent = "Muokattu otsikko!";
+<<<<<<< HEAD
 });
 
 const changeStyleButton = document.querySelector("#changeStyleButton");
@@ -72,4 +76,6 @@ animalImage.alt = "Tämä on tiikeri";
 animalDescription.textContent =
 "Tiikerit ovat raidallisia ja melko rauhallisia eläimiä";
 }
+=======
+>>>>>>> 932250ed1312559452b35fea8763e6bb0f6af65d
 });

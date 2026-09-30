@@ -87,8 +87,13 @@ code {
 
 .highlight {
     padding: 1rem;
+<<<<<<< HEAD
     color: rgb(5, 0, 0);
     background-color: #a82b66;
+=======
+    color: white;
+    background-color: #31107a;
+>>>>>>> 932250ed1312559452b35fea8763e6bb0f6af65d
 }
 
 .animal-heading {
