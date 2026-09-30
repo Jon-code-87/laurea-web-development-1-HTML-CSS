@@ -1,14 +1,10 @@
-<<<<<<< HEAD
 // Tehtävä 1
 
-=======
->>>>>>> 932250ed1312559452b35fea8763e6bb0f6af65d
 const changeHeadingButton = document.querySelector("#changeHeadingButton");
 const taskOneHeading = document.querySelector("#taskOneHeading");
 
 changeHeadingButton.addEventListener("click", function () {
     taskOneHeading.textContent = "Muokattu otsikko!";
-<<<<<<< HEAD
 });
 
 const changeStyleButton = document.querySelector("#changeStyleButton");
@@ -40,8 +36,29 @@ animalParagraph.textContent =
 "Tiikeri on maailman suurin kissaeläin.";
 
 
+const animalPicture = document.createElement("img");
+animalPicture.src = "images/tiger.png";
+animalPicture.alt = "Tiikeri";
+
+animalHeading.classList.add("animal-heading");
+
+animalContent.append(
+animalHeading,
+animalParagraph,
+animalPicture
+);
 
 
+const hideAnimalButton = document.querySelector("#hideAnimalButton");
+const showAnimalButton = document.querySelector("#showAnimalButton");
+
+hideAnimalButton.addEventListener("click", function () {
+animalContent.style.display = "none";
+});
+
+showAnimalButton.addEventListener("click", function () {
+animalContent.style.display = "block";
+});
 
 
 
@@ -71,11 +88,47 @@ console.log("selected animal:", selectedAnimal);
 
 if (selectedAnimal === "tiger") {
 animalName.textContent = "Tiikeri";
-animalImage.src = "Images/tiger.png";
+animalImage.src = "images/tiger.png";
 animalImage.alt = "Tämä on tiikeri";
 animalDescription.textContent =
 "Tiikerit ovat raidallisia ja melko rauhallisia eläimiä";
+
 }
-=======
->>>>>>> 932250ed1312559452b35fea8763e6bb0f6af65d
+
+
+if (selectedAnimal === "elephant") {
+animalName.textContent = "Elefantti";
+animalImage.src = "images/elephant.png";
+animalImage.alt = "Elefantti";
+animalDescription.textContent =
+"Elefantit ovat maailman suurimpia maaeläimiä.";
+}
+ 
+if (selectedAnimal === "penguin") {
+animalName.textContent = "Pingviini";
+animalImage.src = "images/penguin.png";
+animalImage.alt = "Pingviini";
+animalDescription.textContent =
+"Pingviinit ovat lentokyvyttömiä lintuja.";
+}
+ 
+if (selectedAnimal === "panda") {
+animalName.textContent = "Panda";
+animalImage.src = "images/panda.png";
+animalImage.alt = "Panda";
+animalDescription.textContent =
+"Pandat syövät pääasiassa bambua.";
+}
+
+
+
+});
+
+
+animalImage.addEventListener("mouseenter", function () {
+animalImage.classList.add("image-highlight");
+});
+
+animalImage.addEventListener("mouseleave", function () {
+animalImage.classList.remove("image-highlight");
 });
