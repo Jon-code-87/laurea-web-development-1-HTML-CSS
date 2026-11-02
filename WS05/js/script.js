@@ -72,9 +72,26 @@ sponsorForm.addEventListener("submit", function (event) {
     event.preventDefault();
     // TODO: Convert input values with Number().
     // TODO: Muunna syötteet numeroiksi Number()-funktiolla.
+    const yearlyPrice = Number(animalType.value);
+    const years = Number(yearsInput.value);
     // TODO: Calculate the price and apply discounts.
     // TODO: Laske hinta ja alennukset.
+    let totalCost = yearlyPrice * years;
+let discountText = "";
+
+if (years > 2) {
+    totalCost = totalCost * 0.8;
+    discountText = "20 % alennus myönnetty.";
+}
+
+if (years >= 5) {
+    totalCost = totalCost - 5;
+    discountText = "20 % alennus ja lisäksi 5 € lisäalennus.";
+}
     // TODO: Show the result / Näytä tulos.
+cost.textContent = "Yhteensä: " + totalCost + " €";
+
+discountMessage.textContent = discountText;
 });
 
 // Exercise 4 / Harjoitus 4
