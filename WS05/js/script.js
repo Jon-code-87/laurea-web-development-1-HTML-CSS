@@ -104,13 +104,31 @@ function loadAnimal() {
     // TODO: Lue ws05Animal. Tarkista null ennen JSON.parse()-muunnosta.
     // TODO: Display name, species and note with textContent.
     // TODO: Näytä nimi, laji ja muistio textContent-ominaisuudella.
+    const storedAnimal =
+        localStorage.getItem("ws05Animal");
+
+    if (storedAnimal === null) {
+        savedAnimal.textContent =
+            "Ei vielä tallennettua eläintä";
+        return;
+    }
+
+    const animal = JSON.parse(storedAnimal);
+
+    savedAnimal.textContent =
+        animal.name + " / " +
+        animal.species + " / " +
+        animal.note;
 }
 
 loadButton.addEventListener("click", loadAnimal);
 clearButton.addEventListener("click", function () {
     // TODO: Remove ws05Animal and update the displayed result.
+    localStorage.removeItem("ws05Animal");
     // TODO: Poista ws05Animal ja päivitä sivulla näkyvä tulos.
+    savedAnimal.textContent = "Ei vielä tallennettua eläintä";
 });
 
 // TODO: Call loadAnimal() here to restore data when the page opens.
 // TODO: Kutsu loadAnimal() tässä, jotta tiedot palautuvat sivun avautuessa.
+loadAnimal();
