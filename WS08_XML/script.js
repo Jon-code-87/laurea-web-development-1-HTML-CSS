@@ -5,9 +5,6 @@ const apiKey = "824adfe11d5dfb320b78c1d2d8029787";
 const weatherdata = document.getElementById("weatherdata");
 
 
-// =========================
-// VAIHE 1: HAE DATA -NAPPI
-// =========================
 
 // Lisätään kuuntelija Hae data -painikkeelle.
 document.getElementById("haeData").addEventListener("click", async function () {
@@ -64,9 +61,7 @@ document.getElementById("haeData").addEventListener("click", async function () {
 });
 
 
-// ==============================
-// VAIHE 2: HAKUKENTTÄ JA HAE
-// ==============================
+
 
 // Lisätään kuuntelija hakupainikkeelle.
 document.getElementById("search").addEventListener("click", async function () {
