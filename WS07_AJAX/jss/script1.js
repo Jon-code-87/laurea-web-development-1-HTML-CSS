@@ -44,12 +44,12 @@ function showAll() {
 const rawDataButton = document.getElementById("Rawbutton");
 const parsedDataButton = document.getElementById("Parsedbutton");
 
-// lisätään kuuntelijat painikkeille ja käskee clickkauksesta suorittaamaan fetchRawData function.
+// lisätään kuuntelijan Lataa raaka data -painikkeelle ja käskee clickkauksesta suorittaamaan fetchRawData function.
 rawDataButton.addEventListener("click", function() {
     fetchRawData();
 });
 
-// suorittaa luodun funktion ja hakee palvelimelta raakadatan.
+// suorittaa luodun funktion "Lataa Raaka data napille." ja hakee palvelimelta raakadatan ja lisää tiedot consoleen ja html elementtiin.
     function fetchRawData() {
         fetch("https://www.omdbapi.com/?s=star+wars&apikey=cbbc6750")
             .then(response => response.text())
@@ -60,7 +60,7 @@ rawDataButton.addEventListener("click", function() {
             })
             // Antaa errorin jos haku ei onnistu.
             .catch(error => {
-                console.error("Error fetching raw data:", error);
+                console.error("Ei raaka dataa!:", error);
             });
 }
 
@@ -70,9 +70,20 @@ rawDataButton.addEventListener("click", function() {
 parsedDataButton.addEventListener("click", function() {
     fetchParsedData();
 });
-
-
-
-
-
-    
+function fetchParsedData() {
+    fetch("https://www.omdbapi.com/?s=star+wars&apikey=cbbc6750")
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            console.log(data.Search);
+            const parsedDataDiv = document.getElementById("rawdata"); 
+            parsedDataDiv.innerHTML = "";
+            // luotu silmukka joka käy läpi data.Searchin listan ja lisää tiedot html elementtiin.
+            for (let i = 0; i < data.Search.length; i++) {
+                console.log(data.Search[i]);
+            
+           
+        })
+        .catch(error => {
+            console.error("Ei parsed dataa!:", error);
+        });
