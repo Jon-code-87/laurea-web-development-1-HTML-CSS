@@ -92,7 +92,7 @@ function fetchParsedData() {
 // luotu silmukka joka käy läpi data.Searchin listan ja lisää tiedot html elementtiin.
             for (let i = 0; i < data.Search.length; i++) {
                 console.log(data.Search[i].Title);
-// lisätään taulukkoon rivit, jotka sisältävät Title ja Year tiedot.
+// lisätään taulukkoon rivit, jotka sisältävät Title ja Year tiedot ja posterin.
                 table += `
                 <tr>
                     <td>${data.Search[i].Title}</td>
@@ -111,3 +111,115 @@ function fetchParsedData() {
         });
 
     }
+
+ //Haetaan Hae data -painike HTML:stä.
+const weatherButton = document.getElementById("weatherButton");
+
+// Haetaan div, johon säätiedot näytetään.
+const weatherDataDiv = document.getElementById("weatherdata");
+
+// OpenWeatherMap API-avain.
+const apiKey = "824adfe11d5dfb320b78c1d2d8029787";
+
+// Lisätään painikkeelle click-kuuntelija.
+weatherButton.addEventListener("click", function () {
+
+// Kutsutaan säätiedot hakevaa funktiota.
+    fetchWeatherData();
+
+});
+
+// Funktio hakee säätiedot OpenWeatherMap API:sta.
+function fetchWeatherData() {
+
+// Näytetään käyttäjälle, että tietoja haetaan.
+    weatherDataDiv.textContent = "Haetaan säätietoja...";
+
+// Haetaan pudotusvalikosta valittu kaupunki.
+const city = document.getElementById("city").value;
+
+    // Lähetetään pyyntö OpenWeatherMap API:lle.
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
+
+        // Muutetaan palvelimen vastaus JSON-muotoon.
+        .then(response => response.json())
+
+        // Käsitellään saatu data.
+        .then(data => {
+
+            // Tulostetaan koko JSON-data konsoliin tarkastelua varten.
+            console.log(data);
+
+            // Haetaan lämpötila.
+            const temperature = data.main.temp;
+
+            // Haetaan ilmankosteus.
+            const humidity = data.main.humidity;
+
+            // Haetaan pilvisyys.
+            const clouds = data.clouds.all;
+
+            // Näytetään tiedot sivulla.
+            weatherDataDiv.innerHTML = `
+                <p>Lämpötila: ${temperature} °C</p>
+                <p>Ilmankosteus: ${humidity} %</p>
+                <p>Pilvisyys: ${clouds} %</p>
+            `;
+
+        })
+
+        // Jos haku epäonnistuu, näytetään virhe.
+        .catch(error => {
+
+            console.error(error);
+
+            weatherDataDiv.textContent =
+                "Säätietojen haku epäonnistui.";
+
+        });
+}
+
+
+// Haetaan hakupainike HTML-sivulta.
+const searchButton = document.getElementById("search");
+
+// Lisätään hakupainikkeelle click-tapahtuma.
+searchButton.addEventListener("click", function () {
+
+    // Haetaan käyttäjän kirjoittama kaupunki syötekentästä.
+    const city = document.getElementById("citysearch").value;
+
+    // Lähetetään pyyntö OpenWeatherMap API:lle käyttäjän syöttämällä kaupungilla.
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
+
+        // Muutetaan palvelimen vastaus JSON-muotoon.
+        .then(response => response.json())
+
+        // Käsitellään saatu säädata.
+        .then(data => {
+
+            // Haetaan lämpötila.
+            const temperature = data.main.temp;
+
+            // Haetaan ilmankosteus.
+            const humidity = data.main.humidity;
+
+            // Haetaan pilvisyys.
+            const clouds = data.clouds.all;
+
+            // Näytetään säätiedot sivulla.
+            weatherDataDiv.innerHTML = `
+                <h3>${city}</h3>
+                <p>Lämpötila: ${temperature} °C</p>
+                <p>Ilmankosteus: ${humidity} %</p>
+                <p>Pilvisyys: ${clouds} %</p>
+            `;
+        })
+
+        // Jos haku epäonnistuu, näytetään virheilmoitus.
+        .catch(error => {
+            console.error(error);
+            weatherDataDiv.textContent = "Säätietojen haku epäonnistui.";
+        });
+
+        });
