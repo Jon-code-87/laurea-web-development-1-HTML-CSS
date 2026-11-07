@@ -79,11 +79,32 @@ function fetchParsedData() {
             console.log(data.Search);
             const parsedDataDiv = document.getElementById("rawdata"); 
             parsedDataDiv.innerHTML = "";
-            // luotu silmukka joka käy läpi data.Searchin listan ja lisää tiedot html elementtiin.
+// luodaan taulukko html elementtiin, joka sisältää otsikot Title ja Year.
+            let table = `
+            <table>
+                 <tr>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Poster</th>
+                 </tr>
+            `;  
+
+// luotu silmukka joka käy läpi data.Searchin listan ja lisää tiedot html elementtiin.
             for (let i = 0; i < data.Search.length; i++) {
-                console.log(data.Search[i]);
+                console.log(data.Search[i].Title);
+// lisätään taulukkoon rivit, jotka sisältävät Title ja Year tiedot.
+                table += `
+                <tr>
+                    <td>${data.Search[i].Title}</td>
+                    <td>${data.Search[i].Year}</td>
+                    <td><img src="${data.Search[i].Poster}" alt="Poster" width="100"></td>
+                </tr>`;
+
             }
-           
+                 table += "</table>";
+
+                parsedDataDiv.innerHTML = table;
+
         })
         .catch(error => {
             console.error("Ei parsed dataa!:", error);
