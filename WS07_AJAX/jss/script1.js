@@ -49,7 +49,7 @@ rawDataButton.addEventListener("click", function() {
     fetchRawData();
 });
 
-// suorittaa luodun funktion "Lataa Raaka data napille." ja hakee palvelimelta raakadatan ja lisää tiedot consoleen ja html elementtiin.
+    // suorittaa luodun funktion "Lataa Raaka data napille." ja hakee palvelimelta raakadatan ja lisää tiedot consoleen ja html elementtiin.
     function fetchRawData() {
         fetch("https://www.omdbapi.com/?s=star+wars&apikey=cbbc6750")
             .then(response => response.text())
@@ -79,7 +79,7 @@ function fetchParsedData() {
             console.log(data.Search);
             const parsedDataDiv = document.getElementById("rawdata"); 
             parsedDataDiv.innerHTML = "";
-// luodaan taulukko html elementtiin, joka sisältää otsikot Title ja Year.
+            // luodaan taulukko html elementtiin, joka sisältää otsikot Title ja Year.
             let table = `
             <table>
                  <tr>
@@ -89,10 +89,10 @@ function fetchParsedData() {
                  </tr>
             `;  
 
-// luotu silmukka joka käy läpi data.Searchin listan ja lisää tiedot html elementtiin.
+            // luotu silmukka joka käy läpi data.Searchin listan ja lisää tiedot html elementtiin.
             for (let i = 0; i < data.Search.length; i++) {
                 console.log(data.Search[i].Title);
-// lisätään taulukkoon rivit, jotka sisältävät Title ja Year tiedot ja posterin.
+            // lisätään taulukkoon rivit, jotka sisältävät Title ja Year tiedot ja posterin.
                 table += `
                 <tr>
                     <td>${data.Search[i].Title}</td>
