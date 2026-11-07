@@ -70,6 +70,7 @@ rawDataButton.addEventListener("click", function() {
 parsedDataButton.addEventListener("click", function() {
     fetchParsedData();
 });
+// haetaan tiedot palvelimelta parsimista  varten. 
 function fetchParsedData() {
     fetch("https://www.omdbapi.com/?s=star+wars&apikey=cbbc6750")
         .then(response => response.json())
@@ -81,9 +82,11 @@ function fetchParsedData() {
             // luotu silmukka joka käy läpi data.Searchin listan ja lisää tiedot html elementtiin.
             for (let i = 0; i < data.Search.length; i++) {
                 console.log(data.Search[i]);
-            
+            }
            
         })
         .catch(error => {
             console.error("Ei parsed dataa!:", error);
         });
+
+    }
